@@ -6,7 +6,7 @@ class Receita(models.Model):
     ingredientes = models.TextField()
     modo_preparo = models.TextField()
     tempo_preparo = models.IntegerField()
-    rendimento = models.TextField(max_length=200)
+    rendimento = models.CharField(max_length=200)
     categoria = models.CharField(max_length=200)
     data_receita = models.DateTimeField(default=datetime.now, blank=True)
 
