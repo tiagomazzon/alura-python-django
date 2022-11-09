@@ -65,3 +65,16 @@ def dashboard(request):
     else:
         return redirect('index')
 
+def cria_receita(request):
+    if request.method == 'POST':
+        nome_receita = request.POST['nome_receita']
+        ingredientes = request.POST['ingredientes']
+        modo_preparo = request.POST['modo_preparo']
+        tempo_preparo = request.POST['tempo_preparo']
+        rendimento = request.POST['rendimento']
+        categoria = request.POST['categoria']
+        foto_receita = request.FILES['foto_receita']
+        print(nome_receita, ingredientes, modo_preparo, tempo_preparo, rendimento, categoria, foto_receita)
+        return redirect('dashboard')
+    else:
+        return render(request, 'usuarios/cria_receita.html')
