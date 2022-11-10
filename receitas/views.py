@@ -4,7 +4,10 @@ from .models import Receita
 
 
 def index(request):
-    receitas = Receita.objects.order_by('-data_receita').filter(publicada=True)
+    if request.user.is_authenticated:
+        receitas = Receita.objects.order_by('-data_receita').filter(publicada=True)
+    else:
+        receitas = ''
 
     dados = {
         'receitas' : receitas
